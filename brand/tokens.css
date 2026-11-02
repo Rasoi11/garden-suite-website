@@ -1,0 +1,79 @@
+/* =========================================================
+   Garden Suite — Brand Tokens
+   Edition v1.0 · May 2026
+   Drop into your global stylesheet. All values are sRGB.
+   ========================================================= */
+
+:root {
+  /* ── Core palette ───────────────────────────────────────── */
+  --gs-forest:        #3E4A2E;   /* logo + primary text on light */
+  --gs-forest-deep:   #2F3A22;   /* hover / pressed */
+  --gs-leaf:          #8FA078;   /* sage leaf in mark */
+  --gs-paper:         #FAF7F0;   /* default page background */
+  --gs-ink:           #1F1B16;   /* darkest text on light bg */
+  --gs-ink-soft:      #2B2620;   /* body copy */
+
+  /* ── Support ────────────────────────────────────────────── */
+  --gs-olive:         #6B7A55;   /* labels, meta */
+  --gs-taupe:         #A89882;   /* secondary type */
+  --gs-taupe-deep:    #6B6356;   /* meta on dark or muted */
+
+  /* ── Background washes — never type ─────────────────────── */
+  --gs-sage:          #E5E8DC;
+  --gs-sage-2:        #D7DCC8;
+  --gs-cream:         #F5F0E6;
+  --gs-blush:         #F0E2D7;   /* use sparingly */
+  --gs-sky:           #DDE4E6;   /* use sparingly */
+
+  /* ── Type families ──────────────────────────────────────── */
+  --gs-font-display:  'Manrope', system-ui, sans-serif;
+  --gs-font-body:     'Manrope', system-ui, sans-serif;
+  --gs-font-mono:     'JetBrains Mono', ui-monospace, monospace;
+
+  /* ── Type scale ─────────────────────────────────────────── */
+  --gs-fs-display:    72px;
+  --gs-fs-h1:         48px;
+  --gs-fs-h2:         32px;
+  --gs-fs-h3:         20px;
+  --gs-fs-body:       15px;
+  --gs-fs-small:      13px;
+  --gs-fs-label:      11px;
+
+  --gs-tracking-display: -0.035em;
+  --gs-tracking-tight:   -0.02em;
+  --gs-tracking-label:   0.32em;
+  --gs-tracking-loc:     0.5em;
+
+  /* ── Layout ─────────────────────────────────────────────── */
+  --gs-radius-sm:     4px;
+  --gs-radius-md:     6px;
+  --gs-radius-lg:     8px;
+
+  --gs-space-1:       4px;
+  --gs-space-2:       8px;
+  --gs-space-3:       12px;
+  --gs-space-4:       16px;
+  --gs-space-6:       24px;
+  --gs-space-8:       32px;
+  --gs-space-12:      48px;
+  --gs-space-16:      64px;
+
+  --gs-border:        1px solid rgba(31, 27, 22, 0.08);
+}
+
+/* Dark surface override */
+.gs-on-dark {
+  --gs-text:          var(--gs-paper);
+  --gs-text-muted:    var(--gs-taupe);
+  --gs-bg:            var(--gs-ink);
+}
+
+/* Default helpers */
+body { background: var(--gs-paper); color: var(--gs-ink); font-family: var(--gs-font-body); }
+.gs-label {
+  font-family: var(--gs-font-mono);
+  font-size: var(--gs-fs-label);
+  letter-spacing: var(--gs-tracking-label);
+  text-transform: uppercase;
+  color: var(--gs-olive);
+}
