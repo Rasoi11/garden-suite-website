@@ -242,11 +242,6 @@ section.sage { background: var(--gs-sage); }
   flex-direction: column;
 }
 .map-frame iframe { display: block; width: 100%; flex: 1; min-height: 420px; border: 0; }
-.leaflet-map { width: 100%; flex: 1; min-height: 420px; }
-.leaflet-container { font-family: var(--gs-font-body); }
-.leaflet-popup-content-wrapper { border-radius: var(--gs-radius-md); }
-.leaflet-popup-content { font-size: 14px; line-height: 1.5; color: var(--gs-ink); }
-.leaflet-popup-content strong { color: var(--gs-forest-deep); }
 .map-link {
   display: block;
   text-align: center;

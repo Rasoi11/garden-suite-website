@@ -18,7 +18,7 @@ Plain static HTML + CSS (no build step, no framework). Hosted on GitHub Pages: w
 
 | File | Purpose |
 |---|---|
-| `index.html` | Home page: hero, "What we do", "Find us" (Leaflet map), enquiry form, footer |
+| `index.html` | Home page: hero, "What we do", "Find us" (Google Maps embed, no API key), enquiry form, footer |
 | `contact.html` | Contact page: phone, email, address, visiting info, map |
 | `styles.css` | All site styling. Imports `brand/tokens.css` and Google Fonts |
 | `brand/tokens.css` | Brand design tokens (colours, fonts, spacing) as CSS variables (`--gs-*`) |
