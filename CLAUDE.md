@@ -7,7 +7,7 @@ Plain static HTML + CSS (no build step, no framework). Hosted on GitHub Pages: w
 
 - **Name:** Garden Suite
 - **Address:** Bryntirion Road, Pontlliw, Swansea SA4 9DY
-- **Phone:** 01792 882409 (link as `tel:+441792882409`)
+- **Phone:** 01792 981444 (link as `tel:+441792981444`)
 - **Email (website):** events@gardensuite.co.uk
 - **Location notes:** just off M4 junctions 47 & 48, free on-site parking, ~15 minutes from Swansea city centre
 - **Map coordinates:** 51.6895, -4.0319
