@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Garden Suite — Homepage Preview</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="brand/logo/png/favicon-32.png" />
+  <link rel="stylesheet" href="brand/tokens.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--gs-paper); color: var(--gs-ink-soft); font-family: var(--gs-font-body); font-size: var(--gs-fs-body); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    a { color: var(--gs-forest); text-decoration: none; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 var(--gs-space-6); }
+    .label { font-family: var(--gs-font-mono); font-size: var(--gs-fs-label); letter-spacing: var(--gs-tracking-label); text-transform: uppercase; color: var(--gs-olive); }
+
+    /* Preview banner */
+    .preview-bar { background: var(--gs-blush); color: var(--gs-ink); text-align: center; font-size: 13px; padding: 8px 16px; }
+
+    /* Header */
+    .site-header { position: sticky; top: 0; z-index: 10; background: var(--gs-paper); border-bottom: var(--gs-border); }
+    .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--gs-space-6); height: 72px; }
+    .brand img { height: 64px; width: auto; display: block; margin-left: -28px; }
+    .menu { display: flex; gap: var(--gs-space-8); }
+    .menu a, .enquire-btn { font-family: var(--gs-font-mono); font-size: var(--gs-fs-label); letter-spacing: 0.24em; text-transform: uppercase; color: var(--gs-olive); }
+    .menu a:hover { color: var(--gs-forest); }
+    .enquire-btn { background: var(--gs-forest); color: var(--gs-paper); padding: 11px 20px; border-radius: var(--gs-radius-sm); }
+    .enquire-btn:hover { background: var(--gs-forest-deep); color: var(--gs-paper); }
+
+    /* Photo placeholders */
+    .ph { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px; padding: 16px; border-radius: var(--gs-radius-lg); overflow: hidden;
+          background: linear-gradient(135deg, var(--gs-sage-2), var(--gs-sage)); color: var(--gs-forest); }
+    .ph::before { content: ""; position: absolute; inset: 10px; border: 1px dashed rgba(62, 74, 46, 0.35); border-radius: var(--gs-radius-md); pointer-events: none; }
+    .ph .n { font-family: var(--gs-font-mono); font-size: 11px; letter-spacing: 0.2em; background: var(--gs-forest); color: var(--gs-paper); padding: 3px 9px; border-radius: 99px; }
+    .ph strong { font-weight: 600; font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase; }
+    .ph span.d { font-size: 13px; color: var(--gs-olive); max-width: 34ch; }
+    .ph.dark { background: linear-gradient(160deg, #4a5838, var(--gs-forest-deep)); color: var(--gs-paper); }
+    .ph.dark::before { border-color: rgba(250, 247, 240, 0.35); }
+    .ph.dark .n { background: var(--gs-paper); color: var(--gs-forest); }
+    .ph.dark span.d { color: var(--gs-sage); }
+
+    /* 1. Hero */
+    .hero { position: relative; min-height: 86vh; display: flex; }
+    .hero .ph { position: absolute; inset: 0; border-radius: 0; justify-content: flex-start; padding-top: 18vh; }
+    .hero .ph::before { inset: 16px; }
+    .hero-card { position: relative; align-self: flex-end; margin: 0 0 48px max(24px, calc((100vw - 1180px) / 2 + 24px)); max-width: 520px; background: rgba(31, 27, 22, 0.78); color: var(--gs-paper); padding: 32px 36px; border-radius: var(--gs-radius-lg); }
+    .hero-card .label { color: var(--gs-leaf); }
+    .hero-card h1 { font-size: clamp(34px, 4.4vw, 52px); font-weight: 300; letter-spacing: var(--gs-tracking-display); line-height: 1.08; margin: 12px 0 10px; }
+    .hero-card p { color: var(--gs-sage); font-size: 17px; margin-bottom: 22px; }
+    .btn { display: inline-block; padding: 14px 28px; background: var(--gs-forest); color: var(--gs-paper); font-family: var(--gs-font-mono); font-size: var(--gs-fs-label); letter-spacing: 0.24em; text-transform: uppercase; border-radius: var(--gs-radius-sm); }
+    .btn:hover { background: var(--gs-forest-deep); color: var(--gs-paper); }
+    .btn.light { background: var(--gs-paper); color: var(--gs-forest); }
+    .btn.light:hover { background: var(--gs-sage); color: var(--gs-forest); }
+
+    /* Sections */
+    section { padding: 88px 0; }
+    .head { margin-bottom: 36px; max-width: 640px; }
+    .head h2 { font-size: clamp(30px, 3.4vw, 44px); font-weight: 300; letter-spacing: var(--gs-tracking-tight); color: var(--gs-ink); line-height: 1.12; margin: 12px 0 12px; }
+    .head p { font-size: 17px; }
+    .cream { background: var(--gs-cream); }
+    .sage { background: var(--gs-sage); }
+
+    /* 2. Discover */
+    .discover { display: grid; grid-template-columns: 1.7fr 1fr; gap: 24px; }
+    .discover .big { min-height: 440px; }
+    .discover-side { display: flex; flex-direction: column; gap: 22px; }
+    .discover-side .ph { min-height: 240px; }
+    .discover-side h3 { font-size: 22px; font-weight: 500; color: var(--gs-ink); }
+    .link { font-family: var(--gs-font-mono); font-size: var(--gs-fs-label); letter-spacing: 0.24em; text-transform: uppercase; color: var(--gs-forest); font-weight: 500; }
+    .link:hover { color: var(--gs-olive); }
+
+    /* 3. Cards */
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .card .ph { aspect-ratio: 4 / 5; }
+    .card h3 { font-family: var(--gs-font-mono); font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gs-forest); font-weight: 500; margin: 20px 0 6px; }
+    .card p { margin-bottom: 12px; }
+
+    /* 4. Venue */
+    .venue { display: grid; grid-template-columns: 1.7fr 1fr; grid-template-rows: 1fr 1fr; gap: 24px; min-height: 520px; }
+    .venue .main { grid-row: 1 / 3; }
+    .venue-note { margin-top: 24px; font-size: 17px; max-width: 60ch; }
+
+    /* 5. Drone */
+    .drone { padding: 0; background: var(--gs-ink); position: relative; }
+    .drone .ph { min-height: 72vh; border-radius: 0; }
+    .drone-cap { position: absolute; left: 0; right: 0; bottom: 32px; }
+    .drone-cap h2 { color: var(--gs-paper); font-weight: 300; font-size: clamp(26px, 3vw, 38px); letter-spacing: var(--gs-tracking-tight); }
+
+    /* 6. Enquiry */
+    .contact { display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px; align-items: stretch; }
+    .addr-card { background: var(--gs-forest); color: var(--gs-paper); border-radius: var(--gs-radius-lg); padding: 40px; display: flex; flex-direction: column; gap: 24px; }
+    .addr-card img { width: 220px; height: auto; margin: -30px 0 -40px -50px; }
+    .addr-card address { font-style: normal; font-size: 18px; line-height: 1.6; }
+    .addr-card .link { color: var(--gs-leaf); margin-top: auto; }
+    .details { background: var(--gs-paper); border-radius: var(--gs-radius-lg); padding: 40px; }
+    .row { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 14px 0; border-bottom: var(--gs-border); align-items: baseline; }
+    .row .v { font-size: 17px; color: var(--gs-ink); font-weight: 500; }
+    .ctas { display: flex; gap: 12px; flex-wrap: wrap; margin: 28px 0 32px; }
+    .socials { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    .socials a { border: 1px solid rgba(62, 74, 46, 0.3); border-radius: 99px; padding: 8px 18px; font-family: var(--gs-font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; }
+    .socials a:hover { background: var(--gs-forest); color: var(--gs-paper); }
+
+    footer { background: var(--gs-ink); color: var(--gs-taupe); padding: 32px 0; font-size: 13px; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    footer a { color: var(--gs-paper); }
+
+    @media (max-width: 860px) {
+      .menu { display: none; }
+      .site-header .wrap { height: 64px; }
+      .brand img { height: 56px; margin-left: -10px; }
+      section { padding: 64px 0; }
+      .hero { min-height: 92vh; }
+      .hero-card { margin: 0 16px 24px; padding: 24px; }
+      .discover, .contact { grid-template-columns: 1fr; }
+      .discover .big { min-height: 280px; }
+      .cards { grid-template-columns: 1fr; }
+      .card .ph { aspect-ratio: 4 / 3; }
+      .venue { grid-template-columns: 1fr; grid-template-rows: none; min-height: 0; }
+      .venue .main { grid-row: auto; min-height: 300px; }
+      .venue .ph:not(.main) { min-height: 200px; }
+      .drone .ph { min-height: 60vh; }
+      .addr-card, .details { padding: 28px 24px; }
+      .row { grid-template-columns: 80px 1fr; }
+      .wrap { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="preview-bar">Preview only. Green boxes show where each photo goes.</div>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Garden Suite home"><img src="brand/logo/garden-suite-horizontal.svg" alt="Garden Suite" /></a>
+      <nav class="menu" aria-label="Primary">
+        <a href="#celebrate">Weddings</a>
+        <a href="#celebrate">Celebrations</a>
+        <a href="#venue">The Venue</a>
+        <a href="#drone">Gallery</a>
+        <a href="#enquire">Contact</a>
+      </nav>
+      <a class="enquire-btn" href="#enquire">Enquire</a>
+    </div>
+  </header>
+
+  <!-- 1. Hero -->
+  <section class="hero" id="top" style="padding:0">
+    <div class="ph dark">
+      <span class="n">PHOTO 1</span>
+      <strong>Hero image or video</strong>
+      <span class="d">Full width. The venue at sunset, landscape, as wide as you have</span>
+    </div>
+    <div class="hero-card">
+      <span class="label">Moments made to be yours</span>
+      <h1>Welcome to Garden Suite</h1>
+      <p>A countryside venue for weddings and special celebrations.</p>
+      <a class="btn light" href="#enquire">Make an enquiry</a>
+    </div>
+  </section>
+
+  <!-- 2. Discover -->
+  <section id="discover">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">Discover Garden Suite</span>
+        <h2>A beautiful setting for every occasion</h2>
+        <p>A welcoming countryside venue for weddings, celebrations and special gatherings.</p>
+      </div>
+      <div class="discover">
+        <div class="ph big">
+          <span class="n">PHOTO 2</span>
+          <strong>Drone / aerial shot</strong>
+          <span class="d">Landscape, showing the venue and grounds</span>
+        </div>
+        <div class="discover-side">
+          <div class="ph">
+            <span class="n">PHOTO 3</span>
+            <strong>Wedding photo</strong>
+            <span class="d">A couple or ceremony moment</span>
+          </div>
+          <h3>Welcome to Garden Suite</h3>
+          <p>A memorable place to bring family and friends together.</p>
+          <a class="link" href="#venue">Discover the venue →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Celebrate -->
+  <section id="celebrate" class="cream">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">Celebrate at Garden Suite</span>
+        <h2>From intimate to grand</h2>
+        <p>Whatever you're celebrating, we'll make the day feel like yours.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="ph"><span class="n">PHOTO 4</span><strong>Traditional wedding</strong><span class="d">English / Western wedding, portrait shape</span></div>
+          <h3>Traditional Weddings</h3>
+          <p>Elegant celebrations in a beautiful setting.</p>
+          <a class="link" href="#enquire">Explore →</a>
+        </div>
+        <div class="card">
+          <div class="ph"><span class="n">PHOTO 5</span><strong>Asian wedding</strong><span class="d">Indian / Asian wedding, portrait shape</span></div>
+          <h3>Asian Weddings</h3>
+          <p>Colour, tradition and unforgettable moments.</p>
+          <a class="link" href="#enquire">Explore →</a>
+        </div>
+        <div class="card">
+          <div class="ph"><span class="n">PHOTO 6</span><strong>Birthday celebration</strong><span class="d">Party or milestone birthday, portrait shape</span></div>
+          <h3>Birthday Celebrations</h3>
+          <p>A special setting for milestone occasions.</p>
+          <a class="link" href="#enquire">Explore →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Venue -->
+  <section id="venue">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">The Venue</span>
+        <h2>Full of beautiful spaces</h2>
+        <p>Room to celebrate, inside and out.</p>
+      </div>
+      <div class="venue">
+        <div class="ph main"><span class="n">PHOTO 7</span><strong>Main venue</strong><span class="d">Asian / Indian wedding set-up, the room at its best</span></div>
+        <div class="ph"><span class="n">PHOTO 8</span><strong>Indoor space</strong><span class="d">The room dressed for an event</span></div>
+        <div class="ph"><span class="n">PHOTO 9</span><strong>Garden / outdoor space</strong><span class="d">The gardens in good weather</span></div>
+      </div>
+      <p class="venue-note">A flexible setting for both intimate gatherings and larger celebrations.</p>
+    </div>
+  </section>
+
+  <!-- 5. Drone -->
+  <section class="drone" id="drone">
+    <div class="ph dark">
+      <span class="n">PHOTO 10</span>
+      <strong>Full-width drone shot</strong>
+      <span class="d">The whole venue, grounds and countryside from above</span>
+    </div>
+    <div class="drone-cap"><div class="wrap"><h2>A closer look at Garden Suite</h2></div></div>
+  </section>
+
+  <!-- 6. Enquiry -->
+  <section id="enquire" class="sage">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">Start planning</span>
+        <h2>Make an enquiry</h2>
+        <p>Give us a call or drop us an email. We'll come back to you with dates and a friendly hello.</p>
+      </div>
+      <div class="contact">
+        <div class="addr-card">
+          <img src="brand/logo/garden-suite-mono-white.svg" alt="Garden Suite" />
+          <address>Bryntirion Road<br/>Pontlliw<br/>Swansea<br/>SA4 9DY</address>
+          <a class="link" href="https://www.google.com/maps/search/?api=1&query=Bryntirion+Road+Pontlliw+Swansea+SA4+9DY" target="_blank" rel="noopener">Find us →</a>
+        </div>
+        <div class="details">
+          <span class="label">Contact details</span>
+          <div class="row"><span class="label">Phone</span><a class="v" href="tel:+441792981444">01792 981444</a></div>
+          <div class="row"><span class="label">Email</span><a class="v" href="mailto:events@gardensuite.co.uk">events@gardensuite.co.uk</a></div>
+          <div class="row"><span class="label">Viewings</span><span class="v">By appointment, seven days a week</span></div>
+          <div class="ctas">
+            <a class="btn" href="tel:+441792981444">Call us</a>
+            <a class="btn" href="mailto:events@gardensuite.co.uk?subject=Event%20enquiry">Email us</a>
+          </div>
+          <span class="label">Connect with us</span>
+          <div class="socials">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">Tripadvisor</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>Garden Suite · Pontlliw, Swansea</span>
+      <span><a href="tel:+441792981444">01792 981444</a> · <a href="mailto:events@gardensuite.co.uk">events@gardensuite.co.uk</a></span>
+    </div>
+  </footer>
+
+</body>
+</html>
