@@ -17,6 +17,7 @@
       --heading: var(--gs-ink);
       --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
       --script: 'Pinyon Script', 'Snell Roundhand', cursive;
+      --gold: #9C7A3C;
       --sans: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -80,17 +81,18 @@
     /* Enquiry */
     .enquiry { background: #fff; }
     .contact { margin-top: 36px; display: grid; grid-template-columns: 1fr 1.25fr; gap: 32px; }
-    .addr-card { background: var(--ink); color: #fff; padding: 44px; display: flex; flex-direction: column; gap: 22px; }
+    .addr-card { background: #1C1F21; color: #fff; padding: 44px; display: flex; flex-direction: column; gap: 22px; }
     .addr-card h3 { font-family: var(--sans); font-weight: 700; font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase; }
     .addr-card address { font-style: normal; font-size: 18px; line-height: 1.6; color: #e9e5dc; }
-    .addr-card .find { margin-top: auto; font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gs-leaf); }
+    .addr-card .find { margin-top: auto; font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #C9A564; }
     .details { padding: 8px 0; }
-    .eyebrow { font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gs-olive); }
+    .eyebrow { font-weight: 700; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+    .enquiry-title { font-family: var(--sans); font-weight: 700; font-size: clamp(34px, 3.6vw, 46px); line-height: 1.15; color: var(--heading); margin-top: 10px; }
     .row { display: grid; grid-template-columns: 100px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(31,27,22,0.1); align-items: baseline; }
     .row .k { font-size: 13px; color: var(--gs-taupe-deep); }
     .row .v { font-size: 18px; color: var(--heading); font-weight: 500; }
     .socials { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
-    .socials a { border: 1px solid rgba(31,27,22,0.25); padding: 10px 22px; font-weight: 700; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--heading); }
+    .socials a { background: #ECEBE8; border: 1px solid rgba(31,27,22,0.12); box-shadow: 0 2px 4px rgba(31,27,22,0.15); border-radius: 6px; padding: 12px 32px; font-weight: 700; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--heading); }
     .socials a:hover { background: var(--ink); color: #fff; }
     .details .eyebrow + .row { margin-top: 6px; }
     .details .gap { height: 34px; }
@@ -208,7 +210,7 @@
   <section class="block enquiry" id="enquire">
     <div class="wrap">
       <span class="eyebrow">Start planning</span>
-      <h2 class="title" style="margin-top:10px">Make an Enquiry</h2>
+      <h2 class="enquiry-title">Make an enquiry</h2>
       <div class="contact">
         <div class="addr-card">
           <h3>Garden Suite</h3>
