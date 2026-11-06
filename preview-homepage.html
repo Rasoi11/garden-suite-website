@@ -61,7 +61,7 @@
     /* Section basics */
     section.block { padding: 96px 0; }
     section[id] { scroll-margin-top: 76px; }
-    @media (max-width: 900px) { section[id] { scroll-margin-top: 104px; } }
+    @media (max-width: 900px) { section[id] { scroll-margin-top: 116px; } }
     .title { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(36px, 4vw, 56px); line-height: 1.15; letter-spacing: 0; color: var(--heading); }
     .intro { margin-top: 18px; max-width: 900px; font-size: 18px; }
     .serif-text { font-family: var(--book); font-size: 20px; line-height: 1.45; color: #6b665e; }
@@ -116,19 +116,19 @@
     @media (max-width: 900px) {
       .wrap { padding: 0 16px; }
       .site-header { height: auto; }
-      .site-header .wrap { height: 60px; }
+      .site-header .wrap { height: 72px; }
       .nav-l, .nav-r { display: none; }
       .nav-tabs { display: flex; justify-content: space-around; gap: 8px; height: 42px; align-items: center; border-top: 1px solid rgba(255,255,255,0.14); padding: 0 max(12px, env(safe-area-inset-left, 0px)); }
       .nav-tabs a { font-weight: 700; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; white-space: nowrap; }
       .nav-tabs a:active, .nav-tabs a:hover { color: var(--gs-leaf); }
-      .logo-tab { grid-column: 1; justify-self: start; align-self: stretch; width: 104px; height: 60px; box-shadow: none; }
-      .logo-tab img { width: 124px; margin-top: -2px; }
-      .site-header.scrolled .logo-tab { width: 104px; height: 60px; }
-      .site-header.scrolled .logo-tab img { width: 124px; }
+      .logo-tab { grid-column: 2; justify-self: center; align-self: stretch; width: 124px; height: 72px; box-shadow: none; }
+      .logo-tab img { width: 148px; margin-top: -2px; }
+      .site-header.scrolled .logo-tab { width: 124px; height: 72px; }
+      .site-header.scrolled .logo-tab img { width: 148px; }
       .nav-r { display: flex; grid-column: 3; justify-content: flex-end; padding-left: 0; }
       .nav-r a:not(.enquire) { display: none; }
       .enquire { font-size: 12px; padding: 7px 12px; }
-      .hero { min-height: 80vh; padding: 64px 16px 48px; }
+      .hero { min-height: 80vh; padding: 56px 16px 48px; }
       .hero .welcome { font-size: 14px; letter-spacing: 0.22em; }
       section.block { padding: 64px 0; }
       .weddings-grid, .venue-grid, .contact { grid-template-columns: 1fr; }
