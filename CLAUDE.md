@@ -7,7 +7,7 @@ Plain static HTML + CSS (no build step, no framework). Hosted on Manbir's server
 
 - **Name:** Garden Suite
 - **Address:** Bryntirion Road, Pontlliw, Swansea SA4 9DY
-- **Phone:** 01792 981444 (link as `tel:+441792981444`)
+- **Phone:** 01792 882409 (link as `tel:+441792882409`)
 - **Email (website):** events@gardensuite.co.uk
 - **Location notes:** just off M4 junctions 47 & 48, free on-site parking, ~15 minutes from Swansea city centre
 - **Map coordinates:** 51.6895, -4.0319
@@ -18,7 +18,7 @@ Plain static HTML + CSS (no build step, no framework). Hosted on Manbir's server
 
 | File | Purpose |
 |---|---|
-| `index.html` | Home page: hero, "What we do", "Find us" (Google Maps embed, no API key), enquiry form, footer |
+| `index.html` | Home page: hero, "What we do", "Find us" (Leaflet map), enquiry form, footer |
 | `contact.html` | Contact page: phone, email, address, visiting info, map |
 | `styles.css` | All site styling. Imports `brand/tokens.css` and Google Fonts |
 | `brand/tokens.css` | Brand design tokens (colours, fonts, spacing) as CSS variables (`--gs-*`) |
@@ -51,6 +51,7 @@ Plain static HTML + CSS (no build step, no framework). Hosted on Manbir's server
 - Keep both pages consistent: header, footer, phone and email appear on **both** `index.html` and `contact.html`, so update both.
 - Check changes on mobile width as well as desktop.
 - To publish: commit and push to `main`. Manbir's server picks it up automatically.
+- **Site reverted to its original state (Nov 2026)** at the owner's request: old phone number 01792 882409 and the Leaflet map are back. A phone update to 01792 981444 (commit f65f502) and a keyless Google Maps fix (commit 01ff607) are in history if wanted again.
 - **Saved redesign:** a deck-style homepage (dark header with centred logo tab, hero video, Playfair Display / Cinzel / Great Vibes) is saved in git history at commit `999a922` ("Launch new homepage from the website deck"); restore with `git checkout 999a922 -- index.html images video`. It was live briefly in Nov 2026, then the owner chose to go back to this original homepage. Restore it from that tag if asked.
 
 ## Known to-dos

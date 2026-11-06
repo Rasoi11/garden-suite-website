@@ -8,6 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="brand/logo/png/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="brand/logo/png/favicon-16.png" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 </head>
 <body>
 
@@ -83,11 +84,7 @@
           <a class="btn" href="contact.html">Contact Us</a>
         </div>
         <div class="map-frame">
-          <iframe
-            title="Map of Garden Suite, Bryntirion Road, Pontlliw, Swansea SA4 9DY"
-            src="https://maps.google.com/maps?q=Bryntirion+Road,+Pontlliw,+Swansea+SA4+9DY&amp;z=15&amp;output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div id="gs-map" class="leaflet-map" aria-label="Map of Garden Suite, Bryntirion Road, Pontlliw, Swansea SA4 9DY"></div>
           <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Bryntirion+Road+Pontlliw+Swansea+SA4+9DY" target="_blank" rel="noopener">Open in Google Maps →</a>
         </div>
       </div>
@@ -102,7 +99,7 @@
           <h2 class="section-title">Tell us about your day.</h2>
           <p class="section-body">Drop us the basics and we'll come back to you — usually within one working day — with availability and a friendly hello.</p>
           <div class="form-meta">
-            <div>01792 981444</div>
+            <div>01792 882409</div>
             <div>events@gardensuite.co.uk</div>
             <div>Bryntirion Road · Pontlliw · SA4 9DY</div>
           </div>
@@ -168,7 +165,7 @@
       <div class="footer-meta">
         <span class="name">Garden Suite · Pontlliw, Swansea</span>
         <span class="links">
-          <a href="tel:+441792981444">01792 981444</a> ·
+          <a href="tel:+441792882409">01792 882409</a> ·
           <a href="mailto:events@gardensuite.co.uk">events@gardensuite.co.uk</a> ·
           <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
         </span>
@@ -177,6 +174,16 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    const map = L.map('gs-map', { scrollWheelZoom: false }).setView([51.6895, -4.0319], 15);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+    L.marker([51.6895, -4.0319]).addTo(map).bindPopup('<strong>Garden Suite</strong><br/>Bryntirion Road, Pontlliw<br/>Swansea SA4 9DY').openPopup();
+  </script>
   <script>
     const form = document.getElementById('enquiry-form');
     const success = document.getElementById('form-success');
