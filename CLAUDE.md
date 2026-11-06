@@ -1,7 +1,7 @@
 # Garden Suite Website
 
 Marketing website for **Garden Suite**, a family-run countryside events venue in Pontlliw, Swansea.
-Plain static HTML + CSS (no build step, no framework). Hosted on GitHub Pages: whatever is on the `main` branch is the live site.
+Plain static HTML + CSS (no build step, no framework). Hosted on Manbir's server, which auto-deploys from the `main` branch of this GitHub repo: whatever is on `main` is the live site. SSL is set up on the server.
 
 ## Business details (use these exactly)
 
@@ -18,9 +18,11 @@ Plain static HTML + CSS (no build step, no framework). Hosted on GitHub Pages: w
 
 | File | Purpose |
 |---|---|
-| `index.html` | Home page: hero, "What we do", "Find us" (Google Maps embed, no API key), enquiry form, footer |
-| `contact.html` | Contact page: phone, email, address, visiting info, map |
-| `styles.css` | All site styling. Imports `brand/tokens.css` and Google Fonts |
+| `index.html` | Home page (Nov 2026 redesign from the website deck): hero video, Weddings, From Intimate to Grand cards, Countryside Location, Make an enquiry. Self-contained styles in the `<style>` block |
+| `video/hero.mp4`, `video/hero-720.mp4` | Hero video (1080p desktop, 720p phones), converted from the iPhone original. `images/hero-poster.jpg` shows while it loads |
+| `images/` | Homepage photos. `picture-N-*.jpg` match the numbering in the website deck |
+| `contact.html` | Contact page: phone, email, address, visiting info, map. Still the old design and not linked from the new homepage |
+| `styles.css` | Styling for `contact.html` (old design). Imports `brand/tokens.css` and Google Fonts |
 | `brand/tokens.css` | Brand design tokens (colours, fonts, spacing) as CSS variables (`--gs-*`) |
 | `brand/tokens.json` | Same tokens, machine-readable |
 | `brand/README.txt` | Brand kit summary: colours, typography, logo rules |
@@ -50,11 +52,12 @@ Plain static HTML + CSS (no build step, no framework). Hosted on GitHub Pages: w
 - Preview locally: `python3 -m http.server 4173`, then open http://localhost:4173 (also set up in `.claude/launch.json`).
 - Keep both pages consistent: header, footer, phone and email appear on **both** `index.html` and `contact.html`, so update both.
 - Check changes on mobile width as well as desktop.
-- To publish: commit and push to `main`. GitHub Pages updates within a minute or two.
+- To publish: commit and push to `main`. Manbir's server picks it up automatically.
+- The homepage follows the website deck's look (dark header with centred logo tab, Playfair Display italic headings, Cinzel caps, Great Vibes tagline), not the brand-kit Manrope/forest style. The owner chose this deliberately.
 
 ## Known to-dos
 
-- **Enquiry form doesn't send anything yet.** It only shows a thank-you message. It needs a form service (e.g. Formspree) or an email link to actually deliver enquiries.
-- **Photos are stock placeholders** from Unsplash. Replace with real photos of the venue.
-- **Instagram link** in the footer points to `instagram.com/`, so it needs the real account URL.
+- **No enquiry form on the homepage.** Enquiries are by phone or email only. Add a form service (e.g. Formspree) if a form is wanted.
+- **Pictures 3 to 6 are not Garden Suite** (stock-style wedding and birthday photos supplied by Rishabh). Replace with real photos from events at the venue. Picture 9 is a soft crop from a deck screenshot; replace with the original file.
+- **Instagram and Facebook** are hidden on the homepage until the real account URLs are supplied. There is a marker comment in the enquiry section of `index.html`.
 - The brand kit README lists `hello@gardensuite.wales`, while the website uses `events@gardensuite.co.uk`. Confirm which is correct.

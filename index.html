@@ -3,190 +3,266 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Garden Suite — Countryside Events Venue, Pontlliw, Swansea</title>
-  <meta name="description" content="A countryside events venue in Pontlliw, Swansea — just off the M4. Weddings, celebrations and corporate events with garden views and bespoke menus." />
+  <title>Garden Suite — Wedding &amp; Events Venue in Pontlliw, Swansea</title>
+  <meta name="description" content="Garden Suite is a family-run countryside venue in Pontlliw, Swansea, just off M4 junctions 47 and 48. Traditional and Asian weddings, birthdays and celebrations. Free on-site parking." />
   <link rel="icon" type="image/png" sizes="32x32" href="brand/logo/png/favicon-32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="brand/logo/png/favicon-16.png" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="brand/tokens.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&family=Cormorant+Garamond:wght@500;600&family=Cinzel:wght@400;500&family=Great+Vibes&family=Manrope:wght@400;500;700&display=swap" />
+  <style>
+    :root {
+      /* Layout follows the Nov 2026 website deck: dark bar, logo tab, full-bleed hero, script headings */
+      --ink: var(--gs-ink);
+      --page: #F7F6F2;
+      --text: #5F5A52;
+      --heading: var(--gs-ink);
+      --serif: 'Playfair Display', 'Didot', Georgia, serif;
+      --hero-serif: 'Cormorant Garamond', 'Optima', Georgia, serif;
+      --caps: 'Cinzel', 'Trajan Pro', Georgia, serif;
+      --book: Georgia, 'Times New Roman', serif;
+      --script: 'Great Vibes', 'Snell Roundhand', cursive;
+      --gold: #9C7A3C;
+      --sans: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--page); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+
+    /* Header: dark bar, nav split around a cream logo tab */
+    .site-header { position: sticky; top: 0; z-index: 20; background: var(--ink); height: 76px; }
+    .site-header .wrap { position: relative; height: 100%; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+    .nav-l, .nav-r { display: flex; gap: 28px; align-items: center; }
+    .nav-l { justify-content: flex-end; padding-right: 40px; }
+    .nav-r { justify-content: flex-start; padding-left: 40px; }
+    .nav-l a, .nav-r a, .enquire { font-family: var(--sans); font-weight: 700; font-size: 14px; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; }
+    .nav-l a:hover, .nav-r a:hover, .enquire:hover { color: var(--gs-leaf); }
+    .logo-tab { align-self: start; width: 168px; height: 100px; background: var(--gs-paper); display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.12); transition: width .25s ease, height .25s ease; }
+    .logo-tab img { width: 200px; max-width: none; margin-top: -4px; transition: width .25s ease; }
+    .site-header.scrolled .logo-tab { width: 124px; height: 76px; }
+    .site-header.scrolled .logo-tab img { width: 148px; }
+    .nav-tabs { display: none; }
+    .enquire { border: 1px solid #fff; padding: 9px 18px; }
+    .enquire:hover { background: #fff; color: var(--ink) !important; }
+
+    /* Hero */
+    .hero { position: relative; min-height: 88vh; display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-align: center; color: #fff; padding: 104px 24px 72px; overflow: hidden; background: #2b3320; }
+    .hero-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.12) 40%, rgba(0,0,0,0.45) 100%); }
+    .hero > *:not(.hero-media) { position: relative; z-index: 1; }
+    .hero h1 { font-family: var(--hero-serif); font-weight: 500; font-size: clamp(44px, 5.8vw, 80px); line-height: 1; letter-spacing: 0.02em; text-shadow: 0 2px 20px rgba(0,0,0,0.35); }
+    .hero .place { display: block; font-size: 0.55em; margin-top: 6px; letter-spacing: 0.03em; }
+    .hero .script { font-family: var(--script); font-weight: 400; font-size: clamp(46px, 6.4vw, 92px); line-height: 1.1; text-shadow: 0 2px 16px rgba(0,0,0,0.45); }
+    .hero .welcome { font-family: var(--caps); font-weight: 400; font-size: clamp(18px, 2.4vw, 32px); letter-spacing: 0.08em; margin-top: 6px; text-transform: uppercase; text-shadow: 0 2px 16px rgba(0,0,0,0.45); }
+
+    /* Section basics */
+    section.block { padding: 96px 0; }
+    section[id] { scroll-margin-top: 76px; }
+    @media (max-width: 900px) { section[id] { scroll-margin-top: 116px; } }
+    .title { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(36px, 4vw, 56px); line-height: 1.15; letter-spacing: 0; color: var(--heading); }
+    .intro { margin-top: 18px; max-width: 900px; font-size: 18px; }
+    .serif-text { font-family: var(--book); font-size: 20px; line-height: 1.45; color: #6b665e; }
+    .center { text-align: center; }
+    .center .intro { margin-left: auto; margin-right: auto; }
+    .photo { background-color: var(--gs-sage); background-size: cover; background-position: center; box-shadow: 0 4px 14px rgba(31,27,22,0.16); }
+
+    /* Weddings */
+    .weddings-grid { margin-top: 40px; display: grid; grid-template-columns: 1.78fr 1fr; gap: 30px; align-items: start; }
+    .weddings-grid .big { aspect-ratio: 906 / 444; }
+    .weddings-grid .side .photo { aspect-ratio: 508 / 278; }
+    .weddings-grid .side h3 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 30px; color: var(--heading); margin: 26px 0 8px; }
+
+    /* Cards */
+    .cards { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+    .card .photo { aspect-ratio: 464 / 308; }
+    .card h3 { margin: 30px 0 12px; font-family: var(--sans); font-weight: 700; font-size: 22px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--heading); text-align: center; }
+    .card p { text-align: center; font-size: 17px; }
+
+    /* Venue */
+    .venue-grid { margin-top: 32px; display: grid; grid-template-columns: 1.93fr 1fr; gap: 28px; }
+    .venue-grid .big { aspect-ratio: 930 / 474; }
+    .venue-grid .stack { display: grid; grid-template-rows: 1fr 1fr; gap: 28px; }
+    .venue-note { margin-top: 26px; font-size: 18px; }
+
+    /* Enquiry */
+    .enquiry { background: #fff; }
+    .contact { margin-top: 36px; display: grid; grid-template-columns: 1fr 1.25fr; gap: 32px; }
+    .addr-card { background: #1C1F21; color: #fff; padding: 44px; display: flex; flex-direction: column; gap: 22px; }
+    .addr-card h3 { font-family: var(--sans); font-weight: 700; font-size: 22px; letter-spacing: 0.02em; text-transform: uppercase; }
+    .addr-card address { font-style: normal; font-size: 18px; line-height: 1.6; color: #e9e5dc; }
+    .addr-card .find { margin-top: auto; font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #C9A564; }
+    .details { padding: 8px 0; }
+    .eyebrow { font-weight: 700; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+    .enquiry-title { font-family: var(--sans); font-weight: 700; font-size: clamp(34px, 3.6vw, 46px); line-height: 1.15; color: var(--heading); margin-top: 10px; }
+    .row { display: grid; grid-template-columns: 100px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(31,27,22,0.1); align-items: baseline; }
+    .row .k { font-size: 13px; color: var(--gs-taupe-deep); }
+    .row .v { font-size: 18px; color: var(--heading); font-weight: 500; }
+    .socials { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+    .socials a { display: inline-flex; align-items: center; gap: 10px; background: #ECEBE8; border: 1px solid rgba(31,27,22,0.12); box-shadow: 0 2px 4px rgba(31,27,22,0.15); border-radius: 6px; padding: 12px 32px; font-weight: 700; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--heading); }
+    .socials a:hover { background: var(--ink); color: #fff; }
+    .details .eyebrow + .row { margin-top: 6px; }
+    .details .gap { height: 34px; }
+
+    footer { background: var(--ink); color: #b9b2a5; padding: 30px 0; font-size: 14px; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    footer a { color: #fff; }
+    .foot-links { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .foot-icon { display: inline-flex; margin-left: 8px; }
+    .foot-icon:hover { color: var(--gs-leaf); }
+
+    @media (max-width: 900px) {
+      .wrap { padding: 0 16px; }
+      .site-header { height: auto; }
+      .site-header .wrap { height: 72px; }
+      .nav-l, .nav-r { display: none; }
+      .nav-tabs { display: flex; justify-content: space-around; gap: 8px; height: 42px; align-items: center; border-top: 1px solid rgba(255,255,255,0.14); padding: 0 max(12px, env(safe-area-inset-left, 0px)); }
+      .nav-tabs a { font-weight: 700; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; white-space: nowrap; }
+      .nav-tabs a:active, .nav-tabs a:hover { color: var(--gs-leaf); }
+      .logo-tab { grid-column: 2; justify-self: center; align-self: stretch; width: 124px; height: 72px; box-shadow: none; }
+      .logo-tab img { width: 148px; margin-top: -2px; }
+      .site-header.scrolled .logo-tab { width: 124px; height: 72px; }
+      .site-header.scrolled .logo-tab img { width: 148px; }
+      .nav-r { display: flex; grid-column: 3; justify-content: flex-end; padding-left: 0; }
+      .nav-r a:not(.enquire) { display: none; }
+      .enquire { font-size: 12px; padding: 7px 12px; }
+      .hero { min-height: 80vh; padding: 56px 16px 48px; }
+      .hero .welcome { font-size: 14px; letter-spacing: 0.22em; }
+      section.block { padding: 64px 0; }
+      .weddings-grid, .venue-grid, .contact { grid-template-columns: 1fr; }
+      .venue-grid .stack { grid-template-rows: none; }
+      .venue-grid .stack .photo { aspect-ratio: 478 / 213; }
+      .cards { grid-template-columns: 1fr; gap: 40px; }
+      .serif-text { font-size: 20px; }
+      .addr-card { padding: 32px 24px; }
+    }
+  </style>
 </head>
 <body>
 
   <header class="site-header">
     <div class="wrap">
-      <nav class="nav-left" aria-label="Primary">
-        <a href="index.html" class="active">Home</a>
-        <a href="#what">Events</a>
+      <nav class="nav-l" aria-label="Primary">
+        <a href="#weddings">Weddings</a>
+        <a href="#celebrate">Celebrations</a>
       </nav>
-      <a class="brand-link" href="index.html" aria-label="Garden Suite home">
-        <img src="brand/logo/garden-suite-primary-transparent.svg" alt="Garden Suite" />
-      </a>
-      <nav class="nav" aria-label="Secondary">
-        <a href="#enquire">Enquire</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <nav class="nav-mobile" aria-label="Mobile">
-        <a href="index.html" class="active">Home</a>
-        <a href="contact.html">Contact</a>
+      <a class="logo-tab" href="#top" aria-label="Garden Suite home"><img src="brand/logo/garden-suite-primary-transparent.svg" alt="Garden Suite, Pontlliw" /></a>
+      <nav class="nav-r" aria-label="Secondary">
+        <a href="#venue">The Venue</a>
+        <a href="#enquire">Contact</a>
+        <a class="enquire" href="#enquire">Enquire</a>
       </nav>
     </div>
+    <nav class="nav-tabs" aria-label="Sections">
+      <a href="#weddings">Weddings</a>
+      <a href="#celebrate">Celebrations</a>
+      <a href="#venue">The Venue</a>
+      <a href="#enquire">Contact</a>
+    </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-bg">
-      <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=2000&q=80" alt="Garden ceremony aisle with floral arch" />
-    </div>
-    <div class="wrap hero-content">
-      <h1>A Countryside Events Venue<br/><span class="place">in Pontlliw, Swansea</span></h1>
-      <p class="lede">Just off the M4. Weddings, celebrations, and corporate events.</p>
-      <div class="hero-ctas">
-        <a class="btn" href="#enquire">Enquire Now</a>
-      </div>
+  <!-- 1. Hero: video 1 goes here, picture 10 shows while it loads -->
+  <section class="hero" id="top">
+    <video class="hero-media" autoplay muted loop playsinline preload="auto" poster="images/hero-poster.jpg" aria-hidden="true"><source src="video/hero-720.mp4" type="video/mp4" media="(max-width: 900px)" /><source src="video/hero.mp4" type="video/mp4" /></video>
+    <h1>Garden Suite<span class="place">Pontlliw</span></h1>
+    <div>
+      <p class="script">Make It Memorable. Make It Yours.</p>
+      <p class="welcome">Welcome to Garden Suite</p>
     </div>
   </section>
 
-  <section id="what" class="cream">
+  <!-- 2. Weddings -->
+  <section class="block" id="weddings">
     <div class="wrap">
-      <div class="what">
-        <div class="what-copy">
-          <span class="section-eyebrow">What we do</span>
-          <h2 class="section-title">Events, Done Properly.</h2>
-          <p class="section-body">Garden Suite is a flexible, family-run venue with beautiful garden views — a setting that suits every kind of celebration.</p>
-          <div class="event-tags">
-            <span>Weddings</span>
-            <span>Birthdays</span>
-            <span>Corporate</span>
-            <span>Christenings</span>
-            <span>Wakes</span>
-            <span>Special Occasions</span>
-          </div>
-          <p class="menu-line">Customised and bespoke menus, designed around your event and your guests.</p>
-        </div>
-        <div class="what-img">
-          <img src="https://images.unsplash.com/photo-1530023367847-a683933f4172?auto=format&fit=crop&w=900&q=80" alt="Long banquet table set for an outdoor dinner" loading="lazy" />
+      <h2 class="title">Weddings at Garden Suite</h2>
+      <p class="intro serif-text">Garden Suite offers an elegant and versatile setting for unforgettable wedding celebrations, where every detail is thoughtfully tailored to reflect your unique love story.</p>
+      <div class="weddings-grid">
+        <div class="photo big" style="background-image:url(images/hero-reception-room-sunset.jpg)" role="img" aria-label="Reception room with blossom trees at sunset"></div>
+        <div class="side">
+          <div class="photo" style="background-image:url(images/picture-3-ceremony-kiss.jpg);background-position:center 35%" role="img" aria-label="Bride and groom kissing at their ceremony"></div>
+          <h3>Welcome to Garden Suite</h3>
+          <p class="serif-text">Garden Suite is a flexible, family-run venue with beautiful garden views. A setting that suits every kind of celebration.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="find">
-    <div class="wrap">
-      <div class="find">
-        <div class="find-copy">
-          <span class="section-eyebrow">Find us</span>
-          <h2 class="section-title">Countryside Setting.<br/>Easy to Reach.</h2>
-          <p class="section-body">Pontlliw, Swansea — just off M4 junctions 47 and 48. Free on-site parking, fifteen minutes from Swansea city centre.</p>
-          <div class="find-meta">
-            <div><span class="k">Address</span><span class="v">Bryntirion Road, Pontlliw, Swansea SA4 9DY</span></div>
-            <div><span class="k">Parking</span><span class="v">Free, on site</span></div>
-            <div><span class="k">From M4</span><span class="v">Junctions 47 &amp; 48</span></div>
-          </div>
-          <a class="btn" href="contact.html">Contact Us</a>
+  <!-- 3. Celebrate -->
+  <section class="block" id="celebrate" style="padding-top:24px">
+    <div class="wrap center">
+      <h2 class="title">From Intimate to Grand</h2>
+      <p class="intro">Picture yourself saying "I do" surrounded by manicured gardens. Dancing the night away under sparkling chandeliers. Raising a toast with countryside views stretching as far as the eye can see. With a collection of beautiful spaces to choose from, you'll find the venue that feels right for you. Take a look and see which one speaks to your heart.</p>
+      <div class="cards">
+        <div class="card">
+          <div class="photo" style="background-image:url(images/picture-4-traditional-wedding.jpg);background-position:center 40%" role="img" aria-label="Bride and groom walking through a vineyard"></div>
+          <h3>Traditional Weddings</h3>
+          <p>Celebrate your love with timeless elegance at Garden Suite. Our traditional weddings offer classic charm, stunning ceremony spaces and a picture-perfect backdrop.</p>
         </div>
-        <div class="map-frame">
-          <iframe
-            title="Map of Garden Suite, Bryntirion Road, Pontlliw, Swansea SA4 9DY"
-            src="https://maps.google.com/maps?q=Bryntirion+Road,+Pontlliw,+Swansea+SA4+9DY&amp;z=15&amp;output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Bryntirion+Road+Pontlliw+Swansea+SA4+9DY" target="_blank" rel="noopener">Open in Google Maps →</a>
+        <div class="card">
+          <div class="photo" style="background-image:url(images/picture-5-asian-wedding.jpg);background-position:center 54%" role="img" aria-label="Couple dancing at an Asian wedding"></div>
+          <h3>Asian Weddings</h3>
+          <p>As one of Swansea's top Asian wedding venues, we have a wealth of experience and stunning event suites that transform into the most beautiful of spaces.</p>
+        </div>
+        <div class="card">
+          <div class="photo" style="background-image:url(images/picture-6-birthday.jpg);background-position:center 52%" role="img" aria-label="Woman laughing at her birthday party"></div>
+          <h3>Birthday Celebrations</h3>
+          <p>Whether you're planning a birthday celebration, an anniversary, a family gathering or a professional conference, Garden Suite offers the perfect setting to make every occasion special.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="enquire" class="sage">
+  <!-- 4. Venue -->
+  <section class="block" id="venue" style="padding-top:24px">
     <div class="wrap">
-      <div class="form-grid">
-        <div>
-          <span class="section-eyebrow">Enquire</span>
-          <h2 class="section-title">Tell us about your day.</h2>
-          <p class="section-body">Drop us the basics and we'll come back to you — usually within one working day — with availability and a friendly hello.</p>
-          <div class="form-meta">
-            <div>01792 981444</div>
-            <div>events@gardensuite.co.uk</div>
-            <div>Bryntirion Road · Pontlliw · SA4 9DY</div>
-          </div>
+      <h2 class="title">A Serene Countryside Location</h2>
+      <p class="intro">Set in the tranquil surroundings of Pontlliw, Swansea, Garden Suite combines countryside charm with effortless accessibility. Just off M4 junctions 47 and 48, with complimentary on-site parking and only 15 minutes from Swansea city centre.</p>
+      <div class="venue-grid">
+        <div class="photo big" style="background-image:url(images/conservatory-exterior.jpg);background-position:center 96%" role="img" aria-label="The conservatory and stone building at dusk"></div>
+        <div class="stack">
+          <div class="photo" style="background-image:url(images/reception-room-blossom-trees.jpg)" role="img" aria-label="Reception room set with round tables and blossom trees"></div>
+          <div class="photo" style="background-image:url(images/picture-9-red-carpet.jpg)" role="img" aria-label="Red carpet leading to the conservatory"></div>
         </div>
+      </div>
+      <p class="venue-note">A flexible setting for both intimate gatherings and larger celebrations.</p>
+    </div>
+  </section>
 
-        <form id="enquiry-form" novalidate>
-          <div class="row-2">
-            <div class="field">
-              <label for="name">Your name</label>
-              <input id="name" name="name" type="text" required autocomplete="name" />
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" required autocomplete="email" />
-            </div>
-          </div>
-          <div class="row-2">
-            <div class="field">
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" />
-            </div>
-            <div class="field">
-              <label for="event-type">Event type</label>
-              <select id="event-type" name="event-type">
-                <option>Wedding reception</option>
-                <option>Birthday or celebration</option>
-                <option>Christening or wake</option>
-                <option>Corporate or meeting</option>
-                <option>Other</option>
-              </select>
-            </div>
-          </div>
-          <div class="row-2">
-            <div class="field">
-              <label for="date">Preferred date</label>
-              <input id="date" name="date" type="date" />
-            </div>
-            <div class="field">
-              <label for="guests">Guest count</label>
-              <input id="guests" name="guests" type="number" min="1" max="200" placeholder="e.g. 80" />
-            </div>
-          </div>
-          <div class="field">
-            <label for="message">Anything else?</label>
-            <textarea id="message" name="message" placeholder="Tell us a little about what you're planning…"></textarea>
-          </div>
-          <div class="form-actions">
-            <button class="btn" type="submit">Send enquiry</button>
-          </div>
-          <div class="form-success" id="form-success">
-            Thank you — your enquiry is on its way. We'll be in touch shortly.
-          </div>
-        </form>
+  <!-- 5. Enquiry -->
+  <section class="block enquiry" id="enquire">
+    <div class="wrap">
+      <span class="eyebrow">Start planning</span>
+      <h2 class="enquiry-title">Make an enquiry</h2>
+      <div class="contact">
+        <div class="addr-card">
+          <h3>Garden Suite</h3>
+          <address>Bryntirion Road<br/>Pontlliw<br/>Swansea<br/>SA4 9DY</address>
+          <a class="find" href="https://www.google.com/maps/search/?api=1&query=Bryntirion+Road+Pontlliw+Swansea+SA4+9DY" target="_blank" rel="noopener">Find us →</a>
+        </div>
+        <div class="details">
+          <span class="eyebrow">Contact details</span>
+          <div class="row"><span class="k">Website</span><span class="v">www.gardensuite.co.uk</span></div>
+          <div class="row"><span class="k">Email</span><a class="v" href="mailto:events@gardensuite.co.uk">events@gardensuite.co.uk</a></div>
+          <div class="row"><span class="k">Phone</span><a class="v" href="tel:+441792981444">01792 981444</a></div>
+          <!-- Connect with us: add Instagram and Facebook here once the account URLs are confirmed -->
+        </div>
       </div>
     </div>
   </section>
 
-  <footer class="site-footer">
+  <footer>
     <div class="wrap">
-      <div>
-        <img src="brand/logo/garden-suite-mono-white.svg" alt="Garden Suite" />
-      </div>
-      <div class="footer-meta">
-        <span class="name">Garden Suite · Pontlliw, Swansea</span>
-        <span class="links">
-          <a href="tel:+441792981444">01792 981444</a> ·
-          <a href="mailto:events@gardensuite.co.uk">events@gardensuite.co.uk</a> ·
-          <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
-        </span>
-      </div>
-      <div class="footer-copy">© Garden Suite</div>
+      <span>Garden Suite · Pontlliw, Swansea</span>
+      <span class="foot-links"><a href="tel:+441792981444">01792 981444</a> · <a href="mailto:events@gardensuite.co.uk">events@gardensuite.co.uk</a></span>
     </div>
   </footer>
-
   <script>
-    const form = document.getElementById('enquiry-form');
-    const success = document.getElementById('form-success');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (!form.checkValidity()) { form.reportValidity(); return; }
-      success.classList.add('show');
-      form.reset();
-      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
+    (function () {
+      var h = document.querySelector('.site-header');
+      function onScroll() { h.classList.toggle('scrolled', window.scrollY > 40); }
+      window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    })();
   </script>
 
 </body>
