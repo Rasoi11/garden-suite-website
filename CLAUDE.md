@@ -18,7 +18,7 @@ Plain static HTML + CSS (no build step, no framework). Hosted on Manbir's server
 
 | File | Purpose |
 |---|---|
-| `index.html` | Home page: hero, "What we do", "Find us" (Leaflet map), enquiry form, footer |
+| `index.html` | Home page: hero, "What we do", "Find us" (Google Maps embed, no API key), enquiry form, footer |
 | `contact.html` | Contact page: phone, email, address, visiting info, map |
 | `styles.css` | All site styling. Imports `brand/tokens.css` and Google Fonts |
 | `brand/tokens.css` | Brand design tokens (colours, fonts, spacing) as CSS variables (`--gs-*`) |
@@ -51,12 +51,12 @@ Plain static HTML + CSS (no build step, no framework). Hosted on Manbir's server
 - Keep both pages consistent: header, footer, phone and email appear on **both** `index.html` and `contact.html`, so update both.
 - Check changes on mobile width as well as desktop.
 - To publish: commit and push to `main`. Manbir's server picks it up automatically.
-- **Site reverted to its original state (Nov 2026)** at the owner's request: old phone number 01792 882409 and the Leaflet map are back. A phone update to 01792 981444 (commit f65f502) and a keyless Google Maps fix (commit 01ff607) are in history if wanted again.
+- **Site reverted to its original state (Nov 2026)** at the owner's request, then built back up: venue video as the hero, real reception-room photo in "What we do", wedding photo in the enquiry section, and the keyless Google Maps embed. The phone is still the old 01792 882409; the update to 01792 981444 is commit f65f502 if wanted again.
 - **Saved redesign:** a deck-style homepage (dark header with centred logo tab, hero video, Playfair Display / Cinzel / Great Vibes) is saved in git history at commit `999a922` ("Launch new homepage from the website deck"); restore with `git checkout 999a922 -- index.html images video`. It was live briefly in Nov 2026, then the owner chose to go back to this original homepage. Restore it from that tag if asked.
 
 ## Known to-dos
 
 - **Enquiry form doesn't send anything yet.** It only shows a thank-you message. It needs a form service (e.g. Formspree) or an email link to actually deliver enquiries.
-- **Photos are stock placeholders** from Unsplash. Replace with real photos of the venue.
+- **Wedding kiss photo** in the enquiry section (`images/wedding-ceremony-kiss.jpg`) was not taken at Garden Suite. Replace with a photo from a real event at the venue.
 - **Instagram link** in the footer points to `instagram.com/`, so it needs the real account URL.
 - The brand kit README lists `hello@gardensuite.wales`, while the website uses `events@gardensuite.co.uk`. Confirm which is correct.
