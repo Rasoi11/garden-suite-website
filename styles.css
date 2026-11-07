@@ -430,8 +430,11 @@ form { display: grid; gap: var(--gs-space-4); }
   }
   .nav-mobile a.active, .nav-mobile a:hover { color: var(--gs-forest); }
 
-  .hero { min-height: 64vh; }
-  .hero-content { padding: var(--gs-space-12) var(--gs-space-8); }
+  /* Phones: show the whole video at its own 16:9 shape (no zoomed-in crop), text on a dark band below */
+  .hero { min-height: 0; display: block; padding: 0; }
+  .hero-bg { position: relative; inset: auto; width: 100%; aspect-ratio: 16 / 9; }
+  .hero-bg::after { display: none; }
+  .hero-content { padding: var(--gs-space-8) var(--gs-space-8) var(--gs-space-12); max-width: none; }
 
   .what, .find, .form-grid, .contact-grid {
     grid-template-columns: 1fr;
