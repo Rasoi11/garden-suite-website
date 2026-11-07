@@ -32,8 +32,8 @@
   </header>
 
   <section class="hero">
-    <div class="hero-bg">
-      <video autoplay muted loop playsinline preload="auto" poster="images/hero-poster.jpg" aria-hidden="true">
+    <div class="hero-bg" style="background-image:url(images/hero-poster.jpg)">
+      <video id="hero-video" autoplay muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="auto" poster="images/hero-poster.jpg" aria-hidden="true" tabindex="-1">
         <source src="video/hero-720.mp4" type="video/mp4" media="(max-width: 900px)" />
         <source src="video/hero.mp4" type="video/mp4" />
       </video>
@@ -183,6 +183,20 @@
     </div>
   </footer>
 
+  <script>
+    // Hero video: start it on phones that allow autoplay; otherwise fall back to the still photo
+    (function () {
+      var v = document.getElementById('hero-video');
+      if (!v) return;
+      v.muted = true; v.defaultMuted = true;
+      function fallback() { v.style.display = 'none'; }
+      var sources = v.querySelectorAll('source');
+      if (sources.length) sources[sources.length - 1].addEventListener('error', fallback);
+      v.addEventListener('error', fallback);
+      var p = v.play();
+      if (p && p.catch) p.catch(function () { /* autoplay blocked (e.g. Low Power Mode): poster stays, no play button */ });
+    })();
+  </script>
   <script>
     const form = document.getElementById('enquiry-form');
     const success = document.getElementById('form-success');
